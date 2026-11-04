@@ -66,7 +66,7 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.POST, "/api/v1/sessions", "/api/v1/sessions/*/finish",
                         "/api/v1/events/batch").hasRole("SDK")
                 // Risk API и профили вызывает бэкенд банка по серверному ключу.
-                .requestMatchers("/api/v1/risk/**", "/api/v1/users/*/profile").hasRole("SERVER")
+                .requestMatchers("/api/v1/risk/**", "/api/v1/users/*/profile", "/api/v1/verification/**").hasRole("SERVER")
                 // Вход в дашборд открыт; токен выдаётся только после проверки пароля.
                 .requestMatchers("/api/v1/auth/**").permitAll()
                 // Статика дашборда открыта: данные по API закрыты токеном.

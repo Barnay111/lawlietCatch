@@ -16,7 +16,9 @@ public record RiskRequest(@NotNull UUID sessionId, @Valid Context context) {
             @Size(max = 40)
             @Pattern(regexp = "^[A-Z_]+$", message = "action: заглавные буквы и _")
             String action,
-            Boolean newRecipient
+            Boolean newRecipient,
+            /** Сумма операции в тенге. Нужна решению о подтверждении. */
+            @jakarta.validation.constraints.PositiveOrZero Long amount
     ) {
     }
 }
