@@ -13,7 +13,11 @@ backend/      Spring Boot 4 (Java 21) — Ingestion API, Risk API
 
 ## Запуск инфраструктуры
 
+Секреты не хранятся в репозитории. Создайте локальный файл с паролями:
+
 ```bash
+cp infra/.env.example infra/.env
+# замените значения на случайные, например: openssl rand -hex 24
 docker compose -f infra/docker-compose.yml up -d
 ```
 
@@ -32,7 +36,8 @@ cd backend
 
 Сохраните их: повторно в логе они не появятся. В базе хранится только SHA-256 от ключа.
 
-Переменные окружения (необязательны, есть значения по умолчанию): `DB_URL`, `DB_USER`, `DB_PASSWORD`, `REDIS_HOST`, `REDIS_PORT`.
+Переменные окружения: `DB_PASSWORD` обязателен (тот же, что `POSTGRES_PASSWORD`), `REDIS_PASSWORD` — тот же, что в infra/.env.
+Остальные (`DB_URL`, `DB_USER`, `REDIS_HOST`, `REDIS_PORT`) имеют значения по умолчанию.
 
 ## API
 

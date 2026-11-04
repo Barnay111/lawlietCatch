@@ -128,6 +128,8 @@
 				<configuration>
 					<!-- В тестах много входов с одного адреса: лимиты поднимаем. Лимит проверяется отдельным тестом. -->
 					<systemPropertyVariables>
+						<!-- Пароль БД для тестов: сами тесты поднимают свой PostgreSQL через Testcontainers. -->
+						<DB_PASSWORD>testcontainers-only</DB_PASSWORD>
 						<behaviorguard.ratelimit.login-per-minute>100000</behaviorguard.ratelimit.login-per-minute>
 						<behaviorguard.ratelimit.api-per-minute>100000000</behaviorguard.ratelimit.api-per-minute>
 					</systemPropertyVariables>

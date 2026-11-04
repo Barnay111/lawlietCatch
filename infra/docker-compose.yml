@@ -1,6 +1,7 @@
 name: behaviorguard
 
 # Локальная инфраструктура для разработки MVP.
+# Секреты берутся из infra/.env (файл не коммитится). Шаблон: infra/.env.example.
 # Запуск: docker compose -f infra/docker-compose.yml up -d
 services:
   postgres:
@@ -9,7 +10,7 @@ services:
     environment:
       POSTGRES_DB: behaviorguard
       POSTGRES_USER: bg
-      POSTGRES_PASSWORD: bg_dev_password
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?задайте POSTGRES_PASSWORD в infra/.env}
     ports:
       - "5433:5432"
     volumes:
@@ -23,10 +24,11 @@ services:
   redis:
     image: redis:7
     container_name: bg-redis
+    command: ["redis-server", "--requirepass", "${REDIS_PASSWORD:?задайте REDIS_PASSWORD в infra/.env}"]
     ports:
       - "6379:6379"
     healthcheck:
-      test: ["CMD", "redis-cli", "ping"]
+      test: ["CMD-SHELL", "redis-cli --no-auth-warning -a ${REDIS_PASSWORD} ping | grep -q PONG"]
       interval: 5s
       timeout: 3s
       retries: 10
