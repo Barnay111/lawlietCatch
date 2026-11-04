@@ -1,0 +1,34 @@
+{
+  "model_version": "v0.1",
+  "data": "synthetic (не реальные пользователи)",
+  "test_users": 300,
+  "sessions": 12000,
+  "roc_auc": 0.956,
+  "pr_auc": 0.958,
+  "operating_points": [
+    {
+      "name": "MEDIUM",
+      "threshold": 40,
+      "precision": 0.748,
+      "recall": 0.965,
+      "fpr": 0.326
+    },
+    {
+      "name": "HIGH",
+      "threshold": 70,
+      "precision": 0.976,
+      "recall": 0.636,
+      "fpr": 0.015
+    }
+  ],
+  "latency_ms": {
+    "median": 4.482,
+    "p95": 4.621
+  },
+  "recall_by_anomaly_kind": {
+    "impostor": 0.584,
+    "typing": 0.295,
+    "rushed": 0.695,
+    "scripted": 0.968
+  }
+}

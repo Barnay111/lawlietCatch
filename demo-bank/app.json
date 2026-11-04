@@ -1,0 +1,30 @@
+{
+  "expo": {
+    "name": "DemoBank",
+    "slug": "demo-bank",
+    "scheme": "demobank",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "kz.demobank.app"
+    },
+    "android": {
+      "package": "kz.demobank.app"
+    },
+    "web": {
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-status-bar",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "\u041a\u0430\u043c\u0435\u0440\u0430 \u043d\u0443\u0436\u043d\u0430, \u0447\u0442\u043e\u0431\u044b \u043e\u043f\u043b\u0430\u0442\u0438\u0442\u044c \u043f\u043e QR-\u043a\u043e\u0434\u0443."
+        }
+      ]
+    ]
+  }
+}

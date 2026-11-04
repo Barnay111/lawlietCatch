@@ -1,0 +1,27 @@
+# зависимости и окружения
+node_modules/
+.venv/
+__pycache__/
+*.pyc
+
+# сборки
+target/
+dist/
+.expo/
+ios/
+android/
+Pods/
+DerivedData/
+*.log
+
+# секреты и локальные данные (ключи, пароли dev-стенда)
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+*.p12
+dev-credentials.txt
+
+# системные
+.DS_Store
